@@ -124,6 +124,12 @@
         }
         
         /* Hero Section */
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 100px;
+            }
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -144,6 +150,30 @@
         .hero-content {
             z-index: 2;
             max-width: 800px;
+            text-align: center;
+        }
+        
+        .hero-profile {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 5px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         .hero h1 {
@@ -170,6 +200,8 @@
             color: #d0d0d0;
             margin-bottom: 3rem;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
         
@@ -256,6 +288,12 @@
             height: 100%;
             object-fit: cover;
             border-radius: 15px;
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .about-content h3 {
@@ -510,9 +548,19 @@
             
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                z-index: 999;
             }
             
-            .nav-links.mobile-menu {
+            .nav-links.active {
                 display: flex;
             }
             
@@ -599,7 +647,7 @@
             }
             
             .floating-shapes {
-                display: none;
+                display: block;
             }
             
             .hero-bg canvas {
@@ -691,19 +739,12 @@
             <div>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-            <ul class="nav-links mobile-menu" id="mobileMenu">
+            <ul class="nav-links" id="mobileMenu">
                 <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
                 <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
                 <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
                 <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
                 <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-            </ul>
-            <ul class="nav-links desktop-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -718,6 +759,11 @@
         </div>
         <div class="container">
             <div class="hero-content">
+                <div class="hero-profile">
+                    <div class="hero-image">
+                        <img src="pic.jpeg" alt="Jerry Awoyele">
+                    </div>
+                </div>
                 <h1>Jerry Awoyele</h1>
                 <div class="subtitle">Full Stack Developer</div>
                 <p class="description">
@@ -736,11 +782,7 @@
     <section id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="pic.jpeg" alt="Jerry Awoyele">
-                </div>
-                <div class="about-content">
+            <div class="about-content">
                     <h3>Driven by Innovation</h3>
                     <p>
                         Since 2020, when I first discovered UI/UX design with Figma, I've been captivated by the endless 
@@ -1024,10 +1066,8 @@
         
         // Initialize when page loads
         window.addEventListener('load', () => {
-            // Only initialize Three.js on larger screens
-            if (window.innerWidth > 768) {
-                initThreeJS();
-            }
+            // Initialize Three.js on all screens
+            initThreeJS();
         });
         window.addEventListener('resize', handleResize);
         
