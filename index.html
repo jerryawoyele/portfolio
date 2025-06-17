@@ -45,12 +45,18 @@
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         .nav-links {
@@ -208,13 +214,16 @@
             height: 300px;
             border-radius: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            font-weight: 700;
-            color: white;
+            padding: 5px;
             margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
         }
         
         .about-content h3 {
@@ -542,7 +551,9 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">JA</div>
+            <div class="logo">
+                <img src="pic.jpeg" alt="Jerry Awoyele">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -582,7 +593,9 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-grid">
-                <div class="about-image">JA</div>
+                <div class="about-image">
+                    <img src="pic.jeg" alt="Jerry Awoyele">
+                </div>
                 <div class="about-content">
                     <h3>Driven by Innovation</h3>
                     <p>
@@ -745,6 +758,10 @@
                         <div class="contact-item-text">+234 816 8583 890</div>
                     </div>
                     <div class="contact-item">
+                        <div class="contact-item-icon">💬</div>
+                        <div class="contact-item-text">WhatsApp</div>
+                    </div>
+                    <div class="contact-item">
                         <div class="contact-item-icon">📍</div>
                         <div class="contact-item-text">Lagos, Nigeria</div>
                     </div>
@@ -756,7 +773,8 @@
                 
                 <div class="cta-buttons">
                     <a href="mailto:awoyelejerry.14@gmail.com" class="btn btn-primary">Send Email</a>
-                    <a href="https://www.linkedin.com/in/jerry-awoyele-32579b22a" class="btn btn-secondary" target="_blank">Connect on LinkedIn</a>
+                    <a href="https://wa.me/2348168583890?text=Hi%20Jerry!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." class="btn btn-secondary" target="_blank">WhatsApp</a>
+                    <a href="https://www.linkedin.com/in/jerry-awoyele-32579b22a" class="btn btn-secondary" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
